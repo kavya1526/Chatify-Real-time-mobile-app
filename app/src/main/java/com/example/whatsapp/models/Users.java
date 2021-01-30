@@ -19,6 +19,14 @@ public class Users {
         this.password = password;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getProfilepic() {
         return profilepic;
     }
@@ -51,14 +59,6 @@ public class Users {
         this.password = password;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getLastmsg() {
         return lastmsg;
     }
@@ -66,4 +66,5 @@ public class Users {
     public void setLastmsg(String lastmsg) {
         this.lastmsg = lastmsg;
     }
+
 }
