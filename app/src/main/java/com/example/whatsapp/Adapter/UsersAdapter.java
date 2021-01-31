@@ -14,6 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.whatsapp.ChatDetailActivity;
 import com.example.whatsapp.R;
 import com.example.whatsapp.models.Users;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -21,6 +26,8 @@ import java.util.ArrayList;
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     ArrayList<Users> list;
     Context context;
+    FirebaseDatabase database;
+    FirebaseAuth auth;
 
     public UsersAdapter(ArrayList<Users> list,Context context)
     {
@@ -40,6 +47,28 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
         Users users=list.get(position);
         Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.dp).into(holder.image);
         holder.username.setText(users.getUsername());
+
+        auth = FirebaseAuth.getInstance();
+        final String senderId = auth.getUid();
+        FirebaseDatabase.getInstance().getReference().child("chats")
+                        .child(senderId + users.getId())
+                        .orderByChild("timestamp")
+                        .limitToLast(1)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.hasChildren())
+                                    for(DataSnapshot snapshot1:snapshot.getChildren()){
+                                        holder.lastMsg.setText(snapshot1.child("message").getValue().toString());
+                                    }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
