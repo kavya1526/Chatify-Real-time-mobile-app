@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intn = new Intent(MainActivity.this, SignInActivity.class);
                 startActivity(intn);
                 break;
+            case R.id.groupChat:
+                Intent intn2 = new Intent(MainActivity.this, GroupChatActivity.class);
+                startActivity(intn2);
+                break;
 
         }
         return super.onOptionsItemSelected(item);
