@@ -14,11 +14,6 @@
         <activity
             android:name=".ChatDetailActivity"
             android:label="@string/title_activity_chat_detail">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!--
@@ -29,7 +24,13 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity android:name=".SignInActivity" />
+        <activity android:name=".SignInActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

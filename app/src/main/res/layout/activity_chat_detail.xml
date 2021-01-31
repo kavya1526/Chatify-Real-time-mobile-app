@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="0.993">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/message"
             android:layout_width="287dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -128,7 +128,7 @@
             android:textColor="@color/black" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/send"
             android:layout_width="10dp"
             android:layout_height="50dp"
             android:layout_weight="1"
