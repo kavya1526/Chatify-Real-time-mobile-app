@@ -6,7 +6,7 @@ An app that allows users to send and receive text and photos in realtime across 
 Video link: https://drive.google.com/file/d/16CCqI-GweQSplYmwP9MCYS6QTxY6weOw/view?usp=sharing
 
 The screenshot below shows the login and homescreen of the application.
-![image](https://user-images.githubusercontent.com/61109166/210130380-5f0249bd-c81c-48a1-ac09-57f35cf74181.png)
+<img src="https://user-images.githubusercontent.com/61109166/210130380-5f0249bd-c81c-48a1-ac09-57f35cf74181.png" alt="drawing" width="200"/>
 
 
 The personalized chatting functionality is shown below. All the real time data was stored in Firebase.
